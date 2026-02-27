@@ -1,0 +1,33 @@
+name: Auto Deploy
+
+on:
+  push:
+    branches:
+      - dev
+      - staging
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H 187.124.7.155 >> ~/.ssh/known_hosts
+
+      - name: Deploy based on branch
+        run: |
+          if [[ "${{ github.ref_name }}" == "dev" ]]; then
+            ssh deploy@187.124.7.155 "cd /var/www/dev && git pull origin dev && sudo systemctl reload nginx"
+          elif [[ "${{ github.ref_name }}" == "staging" ]]; then
+            ssh deploy@187.124.7.155 "cd /var/www/staging && git pull origin staging && sudo systemctl reload nginx"
+          elif [[ "${{ github.ref_name }}" == "main" ]]; then
+            ssh deploy@187.124.7.155 "cd /var/www/production && git pull origin main && sudo systemctl reload nginx"
+          fi
