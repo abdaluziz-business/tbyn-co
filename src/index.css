@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-bg-page: #020617;
+  --color-bg-section: #030712;
+  --color-bg-card: #080c1d;
+  --color-border-soft: rgba(255, 255, 255, 0.05);
+  --color-primary: #00f2ff;
+  --color-secondary: #7000ff;
+  --color-accent: #00ff88;
+  --color-text-body: #e2e8f0;
+  --color-text-muted: #94a3b8;
+  
+  --font-sans: "Almarai", sans-serif;
+  --font-mono: "Almarai", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-page text-text-body font-sans antialiased;
+    direction: rtl;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(0, 242, 255, 0.03) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(112, 0, 255, 0.03) 0px, transparent 50%);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-white font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.02] backdrop-blur-2xl border border-white/[0.05];
+  }
+  
+  .glow-primary {
+    @apply shadow-[0_0_40px_rgba(0,242,255,0.15)];
+  }
+
+  .glow-secondary {
+    @apply shadow-[0_0_40px_rgba(112,0,255,0.15)];
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-linear-to-r from-primary via-secondary to-accent;
+  }
+  
+  .gradient-bg {
+    @apply bg-linear-to-r from-primary via-secondary to-accent;
+  }
+
+  .card-experimental {
+    @apply relative overflow-hidden rounded-[2rem] border border-white/[0.05] bg-white/[0.01] transition-all duration-500;
+  }
+
+  .card-experimental:hover {
+    @apply border-primary/30 bg-white/[0.03] -translate-y-2;
+    box-shadow: 0 20px 40px -20px rgba(0, 242, 255, 0.2);
+  }
+
+  .btn-futuristic {
+    @apply relative overflow-hidden px-8 py-4 rounded-full font-bold transition-all duration-500 flex items-center gap-2;
+  }
+
+  .btn-futuristic-primary {
+    @apply bg-primary text-black hover:shadow-[0_0_30px_rgba(0,242,255,0.5)] hover:scale-105;
+  }
+
+  .btn-futuristic-outline {
+    @apply border border-white/10 text-white hover:border-primary/50 hover:bg-primary/5;
+  }
+}
