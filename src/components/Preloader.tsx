@@ -58,7 +58,7 @@ export const Preloader = () => {
                 <defs>
                   <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#00f2ff" />
-                    <stop offset="100%" stopColor="#7000ff" />
+                    <stop offset="100%" stopColor="#0066ff" />
                   </linearGradient>
                 </defs>
                 

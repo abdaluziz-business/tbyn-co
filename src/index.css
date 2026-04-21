@@ -8,8 +8,8 @@
   --color-bg-card: #080c1d;
   --color-border-soft: rgba(255, 255, 255, 0.05);
   --color-primary: #00f2ff;
-  --color-secondary: #7000ff;
-  --color-accent: #00ff88;
+  --color-secondary: #0066ff;
+  --color-accent: #00d1ff;
   --color-text-body: #e2e8f0;
   --color-text-muted: #94a3b8;
   
@@ -45,11 +45,11 @@
   }
   
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-linear-to-r from-primary via-secondary to-accent;
+    @apply bg-clip-text text-transparent bg-linear-to-r from-primary via-accent to-secondary;
   }
   
   .gradient-bg {
-    @apply bg-linear-to-r from-primary via-secondary to-accent;
+    @apply bg-linear-to-r from-primary via-accent to-secondary;
   }
 
   .card-experimental {

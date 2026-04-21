@@ -109,14 +109,14 @@ export const SolutionsGrid = () => {
         }}
       ></div>
 
-      <div className="container mx-auto px-6 relative z-10 text-right">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-end justify-between mb-32 gap-12 border-b border-white/5 pb-16">
-          <div className="order-2 md:order-1 max-w-md">
+          <div className="order-2 max-w-md">
             <p className="text-text-muted text-xl font-light leading-relaxed mb-8">
               نقدم حلولاً شاملة تغطي كافة جوانب التحول الرقمي، من الاستشارة إلى
               التنفيذ والحوكمة.
             </p>
-            <div className="flex items-center gap-6 justify-end">
+            <div className="flex items-center gap-6">
               <div className="flex -space-x-3 rtl:space-x-reverse">
                 {[1, 2, 3].map((i) => (
                   <div
@@ -137,12 +137,13 @@ export const SolutionsGrid = () => {
             </div>
           </div>
 
-          <div className="order-1 md:order-2">
+          <div className="order-1">
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
+              dir="ltr"
             >
               <Layers size={14} className="text-primary" />
               <span className="text-primary text-[10px] uppercase">

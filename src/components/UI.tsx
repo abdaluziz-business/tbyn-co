@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { LucideIcon, ArrowRight } from "lucide-react";
+import { LucideIcon, ArrowRight, ArrowLeft } from "lucide-react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost';
@@ -14,7 +14,7 @@ export const Button = ({ variant = 'primary', size = 'md', children, className =
   const baseStyles = "inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full active:scale-95";
   
   const variants = {
-    primary: "gradient-bg text-white shadow-lg hover:shadow-primary/20 hover:brightness-110",
+    primary: "bg-primary text-black shadow-[0_0_20px_rgba(0,242,255,0.4)] hover:shadow-[0_0_35px_rgba(0,242,255,0.6)] hover:brightness-110",
     secondary: "bg-white/10 text-white border border-white/10 hover:bg-white/20",
     ghost: "text-text-body hover:text-white hover:bg-white/5"
   };
@@ -37,23 +37,42 @@ export const Button = ({ variant = 'primary', size = 'md', children, className =
 
 export const FuturisticCTA = ({ text = "ابدأ الآن", className = "" }: { text?: string, className?: string }) => {
   return (
-    <div className={`flex flex-row items-center gap-3 group cursor-pointer w-fit ${className}`}>
-      {/* Capsule Button */}
+    <motion.div 
+      whileHover="hover"
+      className={`group relative flex items-center gap-0 cursor-pointer w-fit p-1 rounded-full bg-white/5 border border-white/10 hover:border-primary/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,242,255,0.15)] ${className}`}
+    >
+      {/* Background Gradient Slide */}
       <motion.div 
-        whileHover={{ x: 5 }}
-        className="px-10 py-4 rounded-full bg-linear-to-r from-blue-600 to-violet-600 border border-white/10 text-white font-bold shadow-2xl transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] group-hover:brightness-110"
-      >
-        {text}
-      </motion.div>
-      
-      {/* Circular Arrow */}
+        variants={{
+          hover: { opacity: 1, scale: 1 }
+        }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        className="absolute inset-0 bg-linear-to-r from-primary/10 to-secondary/10 rounded-full z-0 pointer-events-none"
+      />
+
+      {/* The Text */}
+      <div className="relative z-10 px-8 py-2">
+        <span className="text-white font-bold text-lg tracking-tight group-hover:text-primary transition-colors duration-300">
+          {text}
+        </span>
+      </div>
+
+      {/* The Icon Circle */}
       <motion.div 
-        whileHover={{ scale: 1.15 }}
-        className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white shadow-2xl transition-all duration-500 group-hover:bg-violet-600 group-hover:shadow-[0_0_30px_rgba(139,92,246,0.4)]"
+        variants={{
+          hover: { 
+            scale: 1.1,
+            x: -5,
+            backgroundColor: "#00f2ff",
+            boxShadow: "0 0 30px rgba(0, 242, 255, 0.6)"
+          }
+        }}
+        transition={{ type: "spring", stiffness: 400, damping: 20 }}
+        className="relative z-10 w-12 h-12 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white shadow-lg transition-colors duration-300 group-hover:text-black"
       >
-        <ArrowRight size={24} />
+        <ArrowLeft size={22} />
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -188,10 +207,14 @@ export const OrganicCard = ({
       ></div>
       
       <motion.div 
-        whileHover={{ scale: 1.1 }}
-        className={`absolute top-2 right-2 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white transition-all duration-300 group-hover:bg-${accentColor} group-hover:text-black cursor-pointer`}
+        whileHover={{ 
+          scale: 1.15,
+          backgroundColor: "#00f2ff",
+          boxShadow: "0 0 30px rgba(0, 242, 255, 0.6)"
+        }}
+        className={`absolute top-2 right-2 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white transition-all duration-300 hover:text-black cursor-pointer`}
       >
-        <ArrowRight size={18} />
+        <ArrowLeft size={18} />
       </motion.div>
     </motion.div>
   );

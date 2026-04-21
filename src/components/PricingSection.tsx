@@ -154,7 +154,7 @@ export const PricingSection = () => {
             viewport={{ once: true }}
             className="card-experimental p-10 flex flex-col h-full group"
           >
-            <div className="flex justify-end mb-12">
+            <div className="flex justify-start mb-12">
               <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest">
                 <Zap size={12} fill="currentColor" />
                 الباقة الأساسية
@@ -209,7 +209,7 @@ export const PricingSection = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       onClick={() => setIsModalOpen(true)}
-                      className="w-full py-4 rounded-2xl bg-primary text-black font-bold text-sm shadow-[0_0_30px_rgba(0,242,255,0.3)] hover:scale-[1.02] transition-all"
+                      className="w-full py-4 rounded-2xl bg-primary text-black font-bold text-sm shadow-[0_0_30px_rgba(0,242,255,0.5)] hover:scale-[1.02] transition-all"
                     >
                       طلب الباقة الآن
                     </motion.button>
@@ -227,7 +227,7 @@ export const PricingSection = () => {
             transition={{ delay: 0.1 }}
             className="card-experimental p-10 flex flex-col h-full group"
           >
-            <div className="flex justify-end mb-12">
+            <div className="flex justify-start mb-12">
               <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/5 border border-secondary/10 text-secondary text-[10px] font-bold uppercase tracking-widest">
                 <Brain size={12} fill="currentColor" />
                 باقة الأتمتة (قريباً)
@@ -246,7 +246,7 @@ export const PricingSection = () => {
                     <span className="text-5xl font-bold text-white tracking-tighter">45,000</span>
                     <img src="/img/saudi-riyal.svg" alt="ريال" className="w-6 h-6 brightness-0 invert opacity-60" />
                   </div>
-                  <button className="w-full py-4 rounded-2xl bg-secondary text-white font-bold text-sm shadow-[0_0_30px_rgba(112,0,255,0.3)] hover:brightness-110 transition-all">
+                  <button className="w-full py-4 rounded-2xl bg-secondary text-white font-bold text-sm shadow-[0_0_30px_rgba(0,102,255,0.4)] hover:brightness-110 transition-all">
                     قريباً
                   </button>
                 </div>
@@ -284,7 +284,7 @@ export const PricingSection = () => {
             className="lg:col-span-8 card-experimental p-10 flex flex-col md:flex-row items-center gap-12 group"
           >
             <div className="flex-[2] text-right">
-              <div className="flex justify-end mb-6">
+              <div className="flex justify-start mb-6">
                 <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/5 border border-blue-500/10 text-blue-400 text-[10px] font-bold uppercase tracking-widest">
                   <Shield size={12} fill="currentColor" />
                   باقة التميز المؤسسي (قريباً)
@@ -294,7 +294,7 @@ export const PricingSection = () => {
               <p className="text-text-muted text-sm leading-relaxed mb-10">
                 حلول سحابية مخصصة للمؤسسات الكبرى والجهات الحكومية التي تحتاج أعلى درجات الأمان والخصوصية وسيادة البيانات.
               </p>
-              <div className="flex justify-end">
+              <div className="flex justify-start">
                 <button className="px-12 py-4 rounded-2xl bg-blue-600 text-white font-bold text-sm shadow-[0_0_30px_rgba(37,99,235,0.3)] hover:brightness-110 transition-all">
                   قريباً
                 </button>
